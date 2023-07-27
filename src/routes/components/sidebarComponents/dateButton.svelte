@@ -13,16 +13,16 @@
     
     onMount ( () => {
         switch(day){
-            case moment(Date()).subtract(1, 'days').format('YYYY/MM/DD'):
+            case moment().subtract(1, 'days').format('YYYY/MM/DD'):
                 text =  'Yesterday';
                 break;
-            case  moment(Date()).format('YYYY/MM/DD') :
+            case  moment().format('YYYY/MM/DD') :
                 text =  'Today';
                 break;
-            case moment(Date()).add(1, 'days').format('YYYY/MM/DD'):
+            case moment().add(1, 'days').format('YYYY/MM/DD'):
                 text =  'Tomorrow';
                 break;
-            case moment(Date()).add(2, 'days').format('YYYY/MM/DD'):
+            case moment().add(2, 'days').format('YYYY/MM/DD'):
                 text =  'Day after' 
                 break;
             default: 

@@ -1,12 +1,17 @@
 <script>
     import { onMount } from "svelte";
-
+    import { createEventDispatcher } from 'svelte';
+    const dispatch = createEventDispatcher();
 
     let logoRotated = false;
     onMount ( () => {
         logoRotated = true;
     });
 
+
+    function showModal(){
+        dispatch('showModal' , {show : true});
+    }
 </script>
 
 <nav>
@@ -18,9 +23,6 @@
     </div>
 
     <div class="right-section">
-        <button class="icons add">
-            <i class="mi mi-circle-add"></i>
-        </button>
         <button class="icons menu">
             <i class="mi mi-menu"></i>
         </button>
@@ -79,4 +81,7 @@
     h1{
         font-size: 2rem;
     }
+
+    
+
 </style>

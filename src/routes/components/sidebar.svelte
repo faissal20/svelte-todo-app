@@ -48,19 +48,21 @@
 
 <style>
     .sidebar{
-        margin: 1rem 3rem;
+        margin: 1rem;
         display: flex;
         flex-direction: column;
         flex: 1;
         max-width: 240px;
-        height: 100%;
+        height: 500px;
     }
     .date{
         flex: 1;
         min-width: 100%;
         padding: 1rem 1rem;
         transition: all 0.2s ease-in-out;
-        margin:  1rem;
+        margin:  1rem 0;
+        border-radius:  10px;
+
     }
     .date.active{
         flex : 2;
@@ -74,7 +76,7 @@
             justify-content: stretch;
             align-items: stretch;
             align-self: stretch;
-            margin: 3rem 1rem 1rem 1rem;
+            margin: 7rem 1rem 1rem 1rem;
             max-width: 100%;
         }
         .date{

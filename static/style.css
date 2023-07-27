@@ -9,3 +9,50 @@ body{
     box-sizing: border-box;
     font-family: Comfortaa, cursive;
 }
+
+.btn{
+  border: none;
+  outline: 1px solid transparent;
+  margin: 1rem 0 .1rem 0;
+  padding: .4rem;
+  background-color: #ffffff98;
+  border-radius: 7px;
+  font-family: inherit;
+  width: 100%;
+  font-size: .8rem;
+  font-weight: 900;
+}
+
+.btn-primary{
+  color: #000;
+  background-color: #ffffff98;
+}
+
+.btn-secondary{
+  color: #fff;
+  background-color: transparent;
+}
+
+.btn:hover{
+  cursor: pointer;
+  background-color: #ffffff;
+  color: #000;
+}
+/* input{
+  padding: .5rem;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+}
+
+textarea{
+  padding: .5rem;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+}
+
+input:focus{
+  box-shadow: 0 0 10px 0 rgba(0,0,0,0.2);
+  border: 1px solid #87ceeb;
+} */
