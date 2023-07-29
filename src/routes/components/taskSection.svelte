@@ -7,8 +7,12 @@
 //    import loadingPng from "/assets/icons8-loading-100.png" 
    
    let tasks = []
+   let title;
+   let description;
+   let error = ''; 
    let loading = true;
    let showAddTask = false;
+   let disabledInput = false 
    let months = [1,2, 3, 4, 5, 6, 7, 8, 9, 10, 11,12];
    let days = [1,2, 3, 4, 5, 6, 7, 8, 9, 10, 11,
     12, 13, 14, 15, 16, 17, 18, 19, 20, 21,
@@ -30,6 +34,52 @@
         tasks =  tasksJson.data
         loading = false
     }
+
+    async function  createTaskRequest(task , description ){
+       
+        const response = await fetch(  'http://todo-api.test/api/tasks' , {
+            method: "POST",
+            mode: "cors", 
+            cache: "no-cache", 
+            credentials: "same-origin", 
+            headers: { "Content-Type": "application/json" ,  "Accept": "application/json"  },
+            body: JSON.stringify({ 
+                        'title' : task,
+                        'description' : description,
+                    })
+        })
+
+        if(!response.ok){
+            throw (await response.json()).message
+        } 
+            
+        return  response
+   }
+
+  
+       
+
+
+   function createTask(event){
+        event.preventDefault();
+        console.log('test')
+       disabledInput = true
+
+       createTaskRequest(title , description).then(res => {
+           res.json().then( data => {
+               error = null
+               let newTasks = tasks
+               newTasks.unshift(data.data)
+               tasks = newTasks
+               disabledInput = false
+           } )
+           
+       }).catch(res => {
+           error = res
+           disabledInput = false
+           
+       })
+   }
     
     function deleteTask(event){
         let id = event.detail.id
@@ -57,7 +107,12 @@
 
     function showAddTaskSection(){
         showAddTask = true;
-        console.log(showAddTask)
+    }
+
+    function hideAddTask(event){
+        event.preventDefault(); 
+        
+        showAddTask = false;
     }
 </script>
 
@@ -70,15 +125,15 @@
         </div>
         {#if showAddTask === true}
         <div class="add-task" transition:fly={{ y: -50, duration: 200 }}>
-            <form action="">
-                <input type="text" placeholder="Add new task" class="title-input" autofocus autocapitalize  >
-                <textarea name="" id="" rows="4" cols="1" placeholder="description"></textarea>
+            <form action="" on:submit={ (event) => createTask(event)}>
+                <input type="text" placeholder="Add new task" class="title-input" bind:value={title} disabled={disabledInput} autofocus autocapitalize  >
+                <textarea name="" id="" rows="4" cols="1" bind:value={description} placeholder="description" disabled={disabledInput} ></textarea>
                 <div class="date">
-                    <input type="date" name="" id="" class="date-input">
+                    <input type="date" name="" id="" class="date-input" disabled={disabledInput}>
                 </div>
                 <div class="action">
                     <button type="submit" class="btn btn-primary">Save</button>
-                    <button class="btn btn-secondary">Cancel</button>
+                    <button type="button" class="btn btn-secondary" on:click={ event => hideAddTask(event) }>Cancel</button>
                 </div>  
             </form>
         </div>
@@ -123,7 +178,7 @@
         background-color: #f4f4f4;
         padding: 1rem 2rem;
         margin: 1rem;
-        overflow-y: visible;
+        overflow-y: scroll;
         scroll-behavior: smooth;
         height: 500px;
         position: relative;

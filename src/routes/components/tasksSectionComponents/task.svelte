@@ -93,7 +93,7 @@
             {:else}
             <input type="text" bind:value={title} on:blur={updateTask} autofocus >
             {/if}
-            <p>{description.slice(0, 100)}{ description.length > 100 ? '...' : ''}</p>
+            <p>{description.slice(0, 100) }{ description.length > 100 ? '...' : ''}</p>
         </div>
         
     </div>
@@ -155,7 +155,6 @@
     }
 
     .options{
-        flex: 3;
         display: flex;
         justify-content: flex-end;
         align-items: center;

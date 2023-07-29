@@ -16,47 +16,6 @@
     let processItem = null;
     let error = null;
     
-   
-    
-    async function  createTaskRequest(task){
-       
-        const response = await fetch(  'http://todo-api.test/api/tasks' , {
-            method: "POST",
-            mode: "cors", 
-            cache: "no-cache", 
-            credentials: "same-origin", 
-            headers: { "Content-Type": "application/json" ,  "Accept": "application/json"  },
-            body: JSON.stringify({ 'title' : task })
-        })
-        if(!response.ok){
-            throw (await response.json()).message
-        } 
-          
-        return  response
-        
-    }
-
-   
-        
-
-
-    function createTask(){
-        disabledInput = true
-        createTaskRequest(newTask).then(res => {
-            res.json().then( data => {
-                error = null
-                let newTasks = tasks
-                newTasks.unshift(data.data)
-                tasks = newTasks
-                disabledInput = false
-            } )
-            
-        }).catch(res => {
-            error = res
-            disabledInput = false
-            
-        })
-    }
 
 
     function changeDate(event){
