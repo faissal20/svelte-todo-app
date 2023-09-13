@@ -51,7 +51,6 @@
         gap: 0;
         width: 100%;
         height: calc(100vh - 130px);
-        margin-top: 1rem;
     }
 
     @media (max-width: 768px){

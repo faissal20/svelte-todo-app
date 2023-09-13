@@ -48,7 +48,7 @@
 
 <style>
     .sidebar{
-        margin: 1rem;
+        margin: 0 1rem;
         display: flex;
         flex-direction: column;
         flex: 1;

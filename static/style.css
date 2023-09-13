@@ -30,29 +30,88 @@ body{
 
 .btn-secondary{
   color: #fff;
-  background-color: transparent;
+  background-color: #00000098;
 }
 
 .btn:hover{
   cursor: pointer;
   background-color: #ffffff;
   color: #000;
-}
-/* input{
-  padding: .5rem;
-  outline: none;
-  border: none;
-  border-radius: 5px;
+  box-shadow: 0px 0px 5px  #00000098;
+  transition: .3s;
 }
 
-textarea{
-  padding: .5rem;
-  outline: none;
-  border: none;
-  border-radius: 5px;
+.btn-delete {
+  color: #fff;
+  background-color: #ff6565;
 }
 
-input:focus{
-  box-shadow: 0 0 10px 0 rgba(0,0,0,0.2);
-  border: 1px solid #87ceeb;
-} */
+.btn-update{
+  color: #fff;
+  background-color: #ffda65;
+}
+
+.btn-success{
+  color: #fff;
+  background-color: #65ff65;
+}
+
+.add-task{
+  border-radius: 14px;
+  margin: 1rem .5rem;
+  background-color: rgb(166, 166, 166);
+  padding: .4rem 2rem 2.4rem 2rem; 
+  transition: all 400ms ;
+}
+.add-task .title-input{
+  border: none;
+  outline: 1px solid transparent;
+  margin: 1rem 0 .1rem 0;
+  padding: .4rem;
+  border-radius: 7px;
+  background-color: #ffffff98;
+
+  font-family: inherit;
+  width: 100%;
+  font-size: 1.7rem;  
+  font-weight: 900;
+}
+
+.add-task .date{
+  display: flex;
+  max-width: 200px;
+  gap: 1rem;
+}
+.add-task .date-input{
+  border: none;
+  outline: 1px solid transparent;
+  margin: 1rem 0 .1rem 0;
+  padding: .4rem .8rem;
+  background-color: #ffffff98;
+  border-radius: 7px;
+  font-family: inherit;
+  width: 100%;
+  font-size: 1rem;  
+  font-weight: 900;
+}
+.add-task textarea{
+  border: none;
+  outline: 1px solid transparent;
+  margin: 1rem 0 .1rem 0;
+  padding: .4rem;
+  background-color: #ffffff98;
+  border-radius: 7px;
+  font-family: inherit;
+  width: 100%;
+  font-size: .8rem;
+  font-weight: 900;
+}
+
+.action { 
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
+  max-width: 200px;
+
+}
